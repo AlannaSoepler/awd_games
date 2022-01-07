@@ -18,7 +18,7 @@ class CreateGamesTable extends Migration
             $table->string('title');
             $table->string('info');
             $table->integer('price');
-            $table->string('release_date');
+            $table->date('release_date');
             $table->string('contact_email');
             $table->string('contact_phone');
             $table->timestamps();
