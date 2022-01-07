@@ -21,6 +21,7 @@ class CreateGamesTable extends Migration
             $table->date('release_date');
             $table->string('contact_email');
             $table->string('contact_phone');
+            $table->string('image_file');
             $table->timestamps();
         });
     }

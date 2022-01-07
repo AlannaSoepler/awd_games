@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Game;
+use Hash;
 
 class GameController extends Controller
 {
@@ -37,27 +38,37 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $game = Game::findOrFail($id);
+        //$game = Game::findOrFail($id);
         $request->validate([
-            'title'=> 'required',
-            'info' => 'required|max:500',
-            'price' => 'required',
-            'release_date' => 'required|date',
-            'contact_email' => 'required|email',
-            'contact_phone' => 'required|digits:8',
-        ]);
-
-        //Simiar to the structure for seeding 
-        $game = new Game();
-        $game->title = $request->input('title');
-        $game->info = $request->input('info');
-        $game->price = $request->input('price');
-        $game->release_date = $request->input('release_date');
-        $game->contact_email = $request->input('contact_email');
-        $game->contact_phone = $request->input('contact_phone');
-        $game->save();
-
-        return redirect()->route('admin.games.index');
+            //    'image_name' => 'mimes:jpeg,bmp,png',
+                'title'=> 'required',
+                'info' => 'required|max:500',
+                'price' => 'required',
+                'release_date' => 'required|date',
+                'contact_email' => 'required|email',
+                'contact_phone' => 'required|digits:8',
+                'game_image' => 'file|image'
+            ]);
+    
+            $game_image = $request->file('game_image');
+            $filename = $game_image->hashName();
+    
+            $path = $game_image->storeAs('public/images', $filename);
+    
+            // if validation passes create the new book
+            $game = new Game();
+            $game->title = $request->input('title');
+            $game->info = $request->input('info');
+            $game->price = $request->input('price');
+            $game->release_date = $request->input('release_date');
+            $game->contact_email = $request->input('contact_email');
+            $game->contact_phone = $request->input('contact_phone');    
+            $game->image_file =  $filename;
+            $game->save();
+    
+    
+    
+            return redirect()->route('admin.games.index');
     }
 
     /**
@@ -104,7 +115,13 @@ class GameController extends Controller
             'release_date' => 'required|date',
             'contact_email' => 'required|email',
             'contact_phone' => 'required|digits:8',
+            'game_image' => 'file|image'
         ]);
+
+        $game_image = $request->file('game_image');
+        $filename = $game_image->hashName();
+
+        $path = $game_image->storeAs('public/images', $filename);
 
         //Simiar to the structure for seeding 
         $game = new Game();
@@ -114,6 +131,7 @@ class GameController extends Controller
         $game->release_date = $request->input('release_date');
         $game->contact_email = $request->input('contact_email');
         $game->contact_phone = $request->input('contact_phone');
+        $game->image_file =  $filename;
         $game->save();
 
         return redirect()->route('admin.games.index');

@@ -20,7 +20,7 @@
                 </ul>
               </div>
             @endif
-            <form method="POST" action="{{ route('admin.games.update', $game->id)}}">
+            <form method="POST" action="{{ route('admin.games.update', $game->id)}}"    enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{  csrf_token()  }}">
               <input type="hidden" name="_method" value="PUT">
 
@@ -48,6 +48,11 @@
                 <label for="contact_phone">Contact Phone</label>
                 <input type="text" class="form-control" id="contact_phone" name="contact_phone" value="{{ old('contact_phone', $game->contact_phone) }}" />
               </div>
+
+              <div class="form-group">
+                <label for="game_image"> Game Image </label>
+                <input type="file" class="form-control" id='game_image' name="game_image" />
+            </div>
 
               <a href="{{ route('admin.games.index') }}" class="btn btn-outline">Cancel</a>
               <button type="submit" class="btn btn-primary float-right">Submit</button>

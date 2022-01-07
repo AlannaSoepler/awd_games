@@ -22,6 +22,7 @@ class GameSeeder extends Seeder
         $game->release_date = '2020-12-21';
         $game->contact_email = 'games@gmail.com';
         $game->contact_phone = '03345981';
+        $game->image_file = 'bMy64oeB0vrsKfRtjw0PCldzjATJO6CCZS44f606.png';
         $game->save();
 
         $game = new Game();
@@ -31,6 +32,7 @@ class GameSeeder extends Seeder
         $game->release_date = '2019-01-24';
         $game->contact_email = 'games@gmail.com';
         $game->contact_phone = '03345981';
+        $game->image_file = 'bMy64oeB0vrsKfRtjw0PCldzjATJO6CCZS44f606.png';
         $game->save();
 
         $game = new Game();
@@ -40,6 +42,7 @@ class GameSeeder extends Seeder
         $game->release_date = '2016-06-01';
         $game->contact_email = 'games@gmail.com';
         $game->contact_phone = '03345981';
+        $game->image_file = 'bMy64oeB0vrsKfRtjw0PCldzjATJO6CCZS44f606.png';
         $game->save();
     }
 }
