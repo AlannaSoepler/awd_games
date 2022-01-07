@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in as User
+                    <a href="{{ route('user.games.index') }}" class="btn btn-default">Show</a>
                 </div>
             </div>
         </div>

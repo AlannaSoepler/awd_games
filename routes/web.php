@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\GameController as UserGameController;
+use App\Http\Controllers\Admin\GameController as AdminGameController;
 
 
 
@@ -27,3 +28,10 @@ Route::get('/admin/home',[App\Http\Controllers\Admin\HomeController::class,'inde
 Route::get('/user/home',[App\Http\Controllers\User\HomeController::class,'index'])->name('user.home');
 Route::get('/user/games/', [UserGameController::class, 'index'])->name('user.games.index');
 Route::get('/user/games/{id}', [UserGameController::class, 'show'])->name('user.games.show');
+Route::get('/admin/games/', [AdminGameController::class, 'index'])->name('admin.games.index');
+Route::get('/admin/games/create', [AdminGameController::class, 'create'])->name('admin.games.create');
+Route::get('/admin/games/{id}', [AdminGameController::class, 'show'])->name('admin.games.show');
+Route::post('/admin/games/store', [AdminGameController::class, 'store'])->name('admin.games.store');
+Route::get('/admin/games/{id}/edit', [AdminGameController::class, 'edit'])->name('admin.games.edit');
+Route::put('/admin/games/{id}', [AdminGameController::class, 'update'])->name('admin.games.update');
+Route::delete('/admin/games/{id}', [AdminGameController::class, 'destroy'])->name('admin.games.destroy');
