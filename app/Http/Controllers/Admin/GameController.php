@@ -37,6 +37,7 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
+        $game = Game::findOrFail($id);
         $request->validate([
             'title'=> 'required',
             'info' => 'required|max:500',
@@ -82,7 +83,9 @@ class GameController extends Controller
      */
     public function edit($id)
     {
-        //
+        $game = Game::findOrFail($id);
+
+        return view('admin.games.edit', [ 'game' => $game]);
     }
 
     /**
@@ -94,7 +97,26 @@ class GameController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'=> 'required',
+            'info' => 'required|max:500',
+            'price' => 'required',
+            'release_date' => 'required|date',
+            'contact_email' => 'required|email',
+            'contact_phone' => 'required|digits:8',
+        ]);
+
+        //Simiar to the structure for seeding 
+        $game = new Game();
+        $game->title = $request->input('title');
+        $game->info = $request->input('info');
+        $game->price = $request->input('price');
+        $game->release_date = $request->input('release_date');
+        $game->contact_email = $request->input('contact_email');
+        $game->contact_phone = $request->input('contact_phone');
+        $game->save();
+
+        return redirect()->route('admin.games.index');
     }
 
     /**
