@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function __construct(){
+        //Authenticates user
         $this->middleware('auth');
+        //User should have thte role user
         $this->middleware('role:user');
     }
 

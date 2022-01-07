@@ -20,6 +20,8 @@
                 </ul>
               </div>
             @endif
+
+            <!--Routes to admin.games.store which is the name of the web.php-->
             <form method="POST" action="{{ route('admin.games.store')  }}">
               <input type="hidden" name="_token" value="{{  csrf_token()  }}">
               <div class="form-group">
@@ -46,7 +48,9 @@
                 <label for="contact_phone">Contact Phone</label>
                 <input type="text" class="form-control" id="contact_phone" name="contact_phone" value="{{ old('contact_phone') }}" />
               </div>
+              <!--Routes to admin.games.store which is the name of the web.php-->
               <a href="{{ route('admin.games.index') }}" class="btn btn-outline">Cancel</a>
+              <!--Carries out the action at the top of the for. Route admin.games.store-->
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
           </div>

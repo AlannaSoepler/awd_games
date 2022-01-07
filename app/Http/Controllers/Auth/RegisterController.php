@@ -63,7 +63,10 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    
+    //  This will assign a new user the role of user
+    //  I am getting the user role from the database and attach it ti the user roles
+     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],

@@ -7,6 +7,7 @@
         <div class="card">
           <div class="card-header">
             Games
+            <!--Routes to admin.games.create which is the name of the web.php-->
             <a href="{{ route('admin.games.create') }}" class="btn btn-primary float-right">Add</a>
           </div>
           <div class="card-body">
@@ -30,8 +31,12 @@
                       <td>{{ $game->price }}</td>
                       <td>{{ $game->release_date }}</td>  
                       <td>
+                        <!--Routes to admin.games.show which is the name of the web.php-->
                         <a href="{{ route('admin.games.show', $game->id) }}" class="btn btn-default">View</a>
+                        <!--Routes to admin.games.edit which is the name of the web.php-->
                         <a href="{{ route('admin.games.edit', $game->id) }}" class="btn btn-warning">Edit</a>
+                        <!--This is the method post, but i am pushing in the value delete-->
+                        <!--If the button is pressed go to the route admin.games.destroy and pass in the id-->
                         <form style="display:inline-block" method="POST" action="{{ route('admin.games.destroy', $game->id) }}">
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_token"  value="{{ csrf_token() }}">

@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in as Admin
+                    <!--Routes to admin.games.index which is the name of the web.php-->
                     <a href="{{ route('admin.games.index') }}" class="btn btn-default">Show</a>
                 </div>
             </div>

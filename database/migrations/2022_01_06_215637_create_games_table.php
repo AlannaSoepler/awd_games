@@ -11,8 +11,10 @@ class CreateGamesTable extends Migration
      *
      * @return void
      */
+    //This will create the game table with these attrabutes
     public function up()
     {
+        //Create the table games and add columes to this table
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('title');

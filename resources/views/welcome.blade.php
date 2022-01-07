@@ -15,6 +15,7 @@
                     @endif
 
                     Come one, come all?
+                    <!--Routes to /about which is the name of the web.php-->
                     Read More <a href="{{route('about')}}">Read more</a>
                 </div>
             </div>

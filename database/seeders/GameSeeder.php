@@ -15,6 +15,8 @@ class GameSeeder extends Seeder
      */
     public function run()
     {
+        //Here i will create some starting games for the games table
+        //Just like what i did in the UserSeeder
         $game = new Game();
         $game->title = 'Zelda: Breath of the Wild';
         $game->info = 'Breath of the Wild is an action-adventure game set in an open world where players are tasked with exploring the kingdom of Hyrule while controlling Link.';

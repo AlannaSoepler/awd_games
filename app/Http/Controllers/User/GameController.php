@@ -15,7 +15,10 @@ class GameController extends Controller
      */
     public function index()
     {
+        //Gets all the games and puts it into the varable games
         $games = Game::all();
+        //Redirects the user to the user.games.index and this stores all the games into $games which will be used in index.blade 
+        //it is the green games that i am using in user.games.blade
         return view('user.games.index', ['games' => $games ]);
     }
 
@@ -48,8 +51,10 @@ class GameController extends Controller
      */
     public function show($id)
     {
+        //Fin the games with the spesific id and put it into the variable $game
+        //If it can find the id it will send an arror
         $game = Game::findOrFail($id);
-
+        //Redirect the user to the user.games.show then pass in this spesific game
         return view('user.games.show', [
             'game' => $game
         ]);

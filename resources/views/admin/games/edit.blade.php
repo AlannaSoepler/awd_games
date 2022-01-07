@@ -20,6 +20,7 @@
                 </ul>
               </div>
             @endif
+            <!--Routes to admin.games.update which is the name of the web.php-->
             <form method="POST" action="{{ route('admin.games.update', $game->id)}}">
               <input type="hidden" name="_token" value="{{  csrf_token()  }}">
               <input type="hidden" name="_method" value="PUT">
