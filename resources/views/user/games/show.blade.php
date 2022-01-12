@@ -32,6 +32,11 @@
                     <td>{{ $game->contact_email }}</td>
                     <td>{{ $game->contact_phone }}</td>
                   </tr>
+                  <tr>
+                    <td rowspan="8">
+                        <img src="{{ asset('storage/images/' . $game->image_file) }}" width="150">
+                    </td>
+                  </tr>
                 </tbody>
               </table>
 
