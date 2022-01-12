@@ -9,7 +9,7 @@ use Auth;
 class HomeController extends Controller
 {
     public function __construct(){
-        //Checks if the person is veryfied
+        //Checks if the person is veryfied/Logged in
         $this->middleware('auth');
         //After creating a custom middleware
         //The user must have the role admin
