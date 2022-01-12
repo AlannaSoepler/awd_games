@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+//Importing the models User and Role.
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
